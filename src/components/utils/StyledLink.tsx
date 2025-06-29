@@ -19,7 +19,8 @@ export default function StyledLink({
       className={clsx(
         'uppercase py-3 px-6 cursor-pointer font-bold tracking-widest inline-block',
         {
-          'text-white bg-black': color === 'black',
+          'text-white bg-black hover:bg-gray-400 hover:text-black focus:bg-gray-400 focus:text-black':
+            color === 'black',
           'text-black bg-white': color === 'white',
         }
       )}

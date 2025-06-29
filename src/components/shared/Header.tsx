@@ -22,7 +22,7 @@ export default function Header() {
         <ul
           className={clsx(
             `px-4 py-6 bg-white flex flex-col w-full bottom-0 left-1/2 -translate-x-1/2 absolute 
-             md:p-0 md:static md:translate-0 md:flex-row md:w-auto transition-all duration-300`,
+             md:p-0 md:static md:translate-0 md:opacity-100 md:pointer-events-auto md:flex-row md:w-auto transition-all duration-300`,
             {
               'translate-y-full opacity-100': isNavOpen,
               'translate-y-1/2 opacity-0 pointer-events-none': !isNavOpen,

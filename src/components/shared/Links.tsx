@@ -8,7 +8,7 @@ export default function Links() {
         return (
           <li
             key={link.text}
-            className='text-black uppercase tracking-widest font-bold'
+            className='text-black hover:text-black/30 focus-within:text-black/30 duration-300 transition-all uppercase tracking-widest font-bold'
           >
             <Link to={link.to} className='py-4 md:py-2 px-3 block text-center'>
               {link.text}

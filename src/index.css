@@ -7,7 +7,7 @@
   --clr-primary-gradient: linear-gradient(#ffc593, #bc7198 52%, #5a77ff);
   --clr-white: #ffffff;
   --clr-black: #000000;
-  --clr-gray: #dfdfdf;
+  --clr-gray-400: #dfdfdf;
 }
 
 body {

@@ -1,6 +1,6 @@
 export const navLinks = [
   {
-    to: '/',
+    to: '/stories',
     text: 'stories',
   },
   {
