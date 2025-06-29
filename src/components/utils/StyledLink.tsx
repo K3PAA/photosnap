@@ -1,0 +1,30 @@
+import { Link } from '@tanstack/react-router'
+import clsx from 'clsx'
+
+type StyledLinkProps = {
+  children: React.ReactNode
+  color: 'white' | 'black'
+  to?: string
+}
+
+export default function StyledLink({
+  children,
+  color,
+
+  to = '.',
+}: StyledLinkProps) {
+  return (
+    <Link
+      to={to}
+      className={clsx(
+        'uppercase py-3 px-6 cursor-pointer font-bold tracking-widest inline-block',
+        {
+          'text-white bg-black': color === 'black',
+          'text-black bg-white': color === 'white',
+        }
+      )}
+    >
+      {children}
+    </Link>
+  )
+}
