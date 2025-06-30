@@ -1,8 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import clsx from 'clsx'
-
-import arrowWhite from '/assets/shared/desktop/arrowWhite.svg'
-import arrowBlack from '/assets/shared/desktop/arrowBlack.svg'
+import Arrow from './Arrow'
 
 type StyledArrowLinkProps = {
   children: React.ReactNode
@@ -37,10 +35,11 @@ export default function StyledArrowLink({
       >
         {children}
       </span>
-      <img
-        src={color === 'white' ? arrowWhite : arrowBlack}
-        aria-hidden='true'
-        className='group-hover:translate-x-2 transition-transform duration-300'
+      <Arrow
+        color={color}
+        className={
+          'group-hover:translate-x-2 transition-transform duration-300'
+        }
       />
     </Link>
   )

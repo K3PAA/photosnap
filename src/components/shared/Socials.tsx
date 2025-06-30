@@ -1,8 +1,8 @@
-import facebook from '/assets/shared/desktop/facebook.svg'
-import youtube from '/assets/shared/desktop/youtube.svg'
-import twitter from '/assets/shared/desktop/twitter.svg'
-import pinterest from '/assets/shared/desktop/pinterest.svg'
-import instagram from '/assets/shared/desktop/instagram.svg'
+import facebook from '/src/assets/shared/desktop/facebook.svg'
+import youtube from '/src/assets/shared/desktop/youtube.svg'
+import twitter from '/src/assets/shared/desktop/twitter.svg'
+import pinterest from '/src/assets/shared/desktop/pinterest.svg'
+import instagram from '/src/assets/shared/desktop/instagram.svg'
 import clsx from 'clsx'
 
 const socials = [
@@ -37,9 +37,12 @@ export default function Socials() {
             <a
               href={social.href}
               target='_blank'
-              className='brightness-1000  hover:brightness-100 focus-within:brightness-100  duration-300'
+              className='brightness-1000  hover:brightness-100 focus-within:brightness-100  duration-300 '
             >
-              <img src={social.icon} className={clsx('p-2  scale-110')} />
+              <img
+                src={social.icon}
+                className={clsx('p-2  scale-110', { 'pl-0': i === 0 })}
+              />
             </a>
           </li>
         )

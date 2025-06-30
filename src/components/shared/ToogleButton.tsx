@@ -1,5 +1,5 @@
-import open from '/assets/shared/mobile/menu.svg'
-import close from '/assets/shared/mobile/close.svg'
+import open from '/src/assets/shared/mobile/menu.svg'
+import close from '/src/assets/shared/mobile/close.svg'
 
 type ToggleButtonProps = {
   isOpen: boolean
