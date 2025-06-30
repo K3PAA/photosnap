@@ -1,14 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Stories from '../components/shared/Stories'
+import Home from '../components/home/Home'
 
 export const Route = createFileRoute('/')({
-  component: Index,
+  component: Home,
 })
-
-function Index() {
-  return (
-    <>
-      <Stories fullList={false} />
-    </>
-  )
-}

@@ -15,7 +15,7 @@
 }
 
 body {
-  @apply font-primary bg-blue-300 text-black;
+  @apply font-primary bg-white text-black;
 }
 
 .my-container {
@@ -37,6 +37,52 @@ body {
     grid-auto-columns: 1fr;
   }
 }
+
+/*  */
+
+#primary-navigation[data-state='opened'] {
+  animation: translateOpen 300ms ease-in forwards;
+  display: block;
+}
+
+#primary-navigation[data-state='closing'] {
+  pointer-events: none;
+  animation: translateClose 300ms ease-in forwards;
+}
+
+#primary-navigation[data-state='closed'] {
+  display: none;
+}
+
+@media (width > 767px) {
+  #primary-navigation[data-state='closed'] {
+    display: flex;
+  }
+}
+@keyframes translateOpen {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(-50%, 100%);
+  }
+}
+
+@keyframes translateClose {
+  0% {
+    opacity: 100%;
+    transform: translate(-50%, 100%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 0%);
+  }
+}
+
+/*  */
 
 .primary-gradient {
   background-color: #5a77ff;
@@ -171,5 +217,23 @@ body {
   }
   .story-land-of-dreams {
     background-image: url('/stories/mobile/land-of-dreams.jpg');
+  }
+}
+
+.create-and-share {
+  background-image: url('/home/mobile/create-and-share.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+@media (width > 767px) {
+  .create-and-share {
+    background-image: url('/home/tablet/create-and-share.jpg');
+  }
+}
+
+@media (width > 900px) {
+  .create-and-share {
+    background-image: url('/home/desktop/create-and-share.jpg');
   }
 }

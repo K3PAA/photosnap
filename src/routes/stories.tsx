@@ -7,8 +7,8 @@ export const Route = createFileRoute('/stories')({
 
 function RouteComponent() {
   return (
-    <div>
+    <>
       <Stories fullList={true} />
-    </div>
+    </>
   )
 }

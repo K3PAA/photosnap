@@ -5,21 +5,26 @@ import Arrow from './Arrow'
 type StyledArrowLinkProps = {
   children: React.ReactNode
   color: 'white' | 'black'
+  className?: string
+  to?: string | null
 }
 
 export default function StyledArrowLink({
   children,
   color,
+  className,
+  to = null,
 }: StyledArrowLinkProps) {
   return (
     <Link
-      to='.'
+      to={to ? to : '.'}
       className={clsx(
         'uppercase py-3  cursor-pointer font-bold tracking-widest inline-flex items-center gap-4 group',
         {
           'text-black': color === 'black',
           'text-white': color === 'white',
-        }
+        },
+        className
       )}
     >
       <span

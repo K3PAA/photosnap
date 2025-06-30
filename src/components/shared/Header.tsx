@@ -1,34 +1,66 @@
 import Logo from '../utils/Logo'
 import StyledLink from '../utils/StyledLink'
 
-import { useState } from 'react'
+import clsx from 'clsx'
+import { useRef, useState } from 'react'
 import Links from './Links'
 import ToggleButton from './ToogleButton'
-import clsx from 'clsx'
+
+export type NavState = 'closed' | 'opened' | 'closing'
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const listRef = useRef<HTMLUListElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+  const [navState, setNavState] = useState<NavState>('closed')
 
   const toggleIsNavOpen = () => {
-    setIsNavOpen((p) => !p)
+    if (!buttonRef.current || !listRef.current) return
+
+    if (buttonRef.current.getAttribute('aria-expanded') === 'true') {
+      buttonRef.current.setAttribute('aria-expanded', 'false')
+      listRef.current.setAttribute('data-state', 'closing')
+      listRef.current.addEventListener(
+        'animationend',
+        () => {
+          setNavState('closed')
+        },
+        { once: true }
+      )
+
+      setNavState('closing')
+    } else {
+      buttonRef.current.setAttribute('aria-expanded', 'true')
+      listRef.current.setAttribute('data-state', 'opened')
+      setNavState('opened')
+    }
   }
 
   return (
     <header className='bg-white'>
       <nav className='p-4 flex justify-between items-center relative max-w-[1110px] mx-auto'>
         <Logo color='black' />
-        <ToggleButton isOpen={isNavOpen} onClick={toggleIsNavOpen} />
+
+        <ToggleButton
+          navState={navState}
+          onClick={toggleIsNavOpen}
+          ref={buttonRef}
+        />
 
         <ul
           className={clsx(
-            `px-4 py-6 bg-white flex flex-col w-full bottom-0 left-1/2 -translate-x-1/2 absolute z-10
-             md:p-0 md:static md:translate-0 md:opacity-100 md:pointer-events-auto md:flex-row md:w-auto transition-all duration-300`,
-            {
-              'translate-y-full opacity-100': isNavOpen,
-              'translate-y-1/2 opacity-0 pointer-events-none': !isNavOpen,
-            }
+            `px-4 py-6 bg-white flex flex-col w-full bottom-0 left-1/2 absolute z-10 
+             md:p-0 md:static md:translate-0 md:opacity-100 md:pointer-events-auto md:flex-row md:w-auto md:flex`
           )}
           id='primary-navigation'
+          data-state={
+            navState === 'opened'
+              ? 'opened'
+              : navState === 'closed'
+                ? 'closed'
+                : 'closing'
+          }
+          ref={listRef}
         >
           <Links />
 
