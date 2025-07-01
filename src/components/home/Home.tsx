@@ -45,6 +45,7 @@ export default function Home() {
         }}
         imgSide='left'
         linkTo='/stories'
+        main={false}
       />
 
       <Section
@@ -59,6 +60,7 @@ export default function Home() {
           desktop: designedlDesktopMain,
         }}
         linkTo='/stories'
+        main={false}
       />
 
       <StoriesWrapper fullList={false} />

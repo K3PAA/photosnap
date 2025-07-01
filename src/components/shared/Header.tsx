@@ -62,7 +62,7 @@ export default function Header() {
           }
           ref={listRef}
         >
-          <Links />
+          <Links onClick={toggleIsNavOpen} />
 
           <div
             className='mt-5 w-full h-[1px] bg-black/25 md:hidden'

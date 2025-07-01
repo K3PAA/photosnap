@@ -18,6 +18,7 @@ type SectionProps = {
   }
   linkTo?: string | null
   size?: 'large' | 'small'
+  main?: boolean
 }
 
 export default function Section({
@@ -28,6 +29,7 @@ export default function Section({
   linkTo = null,
   imgSide = 'right',
   size = 'large',
+  main = false,
 }: SectionProps) {
   return (
     <section
@@ -52,17 +54,12 @@ export default function Section({
         )}
       >
         {withGradient && <GradientDecoration />}
-        <h1
-          className={clsx(
-            'text-3xl sm:text-[2.25rem] md:text-[2.5rem] uppercase font-bold tracking-widest leading-tight  max-w-[14ch]',
-            {
-              'text-white': bgBlack,
-              'text-black': !bgBlack,
-            }
-          )}
-        >
-          {content.title}
-        </h1>
+        {main ? (
+          <H1 bgBlack={bgBlack} title={content.title} />
+        ) : (
+          <H2 bgBlack={bgBlack} title={content.title} />
+        )}
+
         <p
           className={clsx('mt-5 max-w-[36ch]', {
             'text-white/60': bgBlack,
@@ -105,5 +102,41 @@ export default function Section({
         )}
       />
     </section>
+  )
+}
+
+type HeadingProps = {
+  title: string
+  bgBlack: boolean
+}
+
+function H1({ title, bgBlack }: HeadingProps) {
+  return (
+    <h1
+      className={clsx(
+        'text-3xl sm:text-[2.25rem] md:text-[2.5rem] uppercase font-bold tracking-widest leading-tight  max-w-[14ch]',
+        {
+          'text-white': bgBlack,
+          'text-black': !bgBlack,
+        }
+      )}
+    >
+      {title}
+    </h1>
+  )
+}
+function H2({ title, bgBlack }: HeadingProps) {
+  return (
+    <h2
+      className={clsx(
+        'text-3xl sm:text-[2.25rem] md:text-[2.5rem] uppercase font-bold tracking-widest leading-tight  max-w-[14ch]',
+        {
+          'text-white': bgBlack,
+          'text-black': !bgBlack,
+        }
+      )}
+    >
+      {title}
+    </h2>
   )
 }

@@ -17,7 +17,7 @@ export default function StyledArrowLink({
 }: StyledArrowLinkProps) {
   return (
     <Link
-      to={to ? to : '.'}
+      to={to ? to : '/'}
       className={clsx(
         'uppercase py-3  cursor-pointer font-bold tracking-widest inline-flex items-center gap-4 group',
         {

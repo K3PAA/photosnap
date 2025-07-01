@@ -57,6 +57,15 @@ body {
 @media (width > 767px) {
   #primary-navigation[data-state='closed'] {
     display: flex;
+    animation: none;
+  }
+  #primary-navigation[data-state='closing'] {
+    animation: none;
+    pointer-events: all;
+  }
+  #primary-navigation[data-state='opened'] {
+    display: flex;
+    animation: none;
   }
 }
 @keyframes translateOpen {
@@ -225,14 +234,26 @@ body {
   background-size: cover;
 }
 
-@media (width > 767px) {
+.bg-stories {
+  background-size: cover;
+}
+
+@media (width >= 640px) {
   .bg-beta {
     background-image: url('/shared/tablet/bg-beta.jpg');
+  }
+  .bg-stories {
+    background-size: cover;
+    background-image: url('/stories/tablet/moon-of-appalacia.jpg');
   }
 }
 
 @media (width > 900px) {
   .bg-beta {
     background-image: url('/shared/desktop/bg-beta.jpg');
+  }
+  .bg-stories {
+    background-size: cover;
+    background-image: url('/stories/desktop/moon-of-appalacia.jpg');
   }
 }

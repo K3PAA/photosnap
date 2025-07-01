@@ -11,7 +11,7 @@ export default function StyledLink({
   children,
   color,
 
-  to = '.',
+  to = '/',
 }: StyledLinkProps) {
   return (
     <Link

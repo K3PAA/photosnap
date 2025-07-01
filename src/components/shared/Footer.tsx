@@ -21,7 +21,10 @@ export default function Footer() {
             </li>
             {navLinks.map((link) => {
               return (
-                <li className='text-white uppercase font-bold transition-all duratin-300 hover:text-white/30 focus-within:text-white/30'>
+                <li
+                  key={link.to}
+                  className='text-white uppercase font-bold transition-all duratin-300 hover:text-white/30 focus-within:text-white/30'
+                >
                   <Link to={link.to} className='py-2 block'>
                     {link.text}
                   </Link>
