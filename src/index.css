@@ -220,20 +220,19 @@ body {
   }
 }
 
-.create-and-share {
-  background-image: url('/home/mobile/create-and-share.jpg');
-  background-position: center;
+.bg-beta {
+  background-image: url('/shared/mobile/bg-beta.jpg');
   background-size: cover;
 }
 
 @media (width > 767px) {
-  .create-and-share {
-    background-image: url('/home/tablet/create-and-share.jpg');
+  .bg-beta {
+    background-image: url('/shared/tablet/bg-beta.jpg');
   }
 }
 
 @media (width > 900px) {
-  .create-and-share {
-    background-image: url('/home/desktop/create-and-share.jpg');
+  .bg-beta {
+    background-image: url('/shared/desktop/bg-beta.jpg');
   }
 }

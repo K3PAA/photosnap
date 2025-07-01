@@ -1,6 +1,4 @@
-import Stories from '../shared/Stories'
-
-import Section from './Section'
+import Section from '../utils/Section'
 
 import homeDesktopMain from '/src/assets/home/desktop/create-and-share.jpg'
 import homeMobileMain from '/src/assets/home/mobile/create-and-share.jpg'
@@ -13,6 +11,8 @@ import beautifulTabletMain from '/src/assets/home/tablet/beautiful-stories.jpg'
 import designedlDesktopMain from '/src/assets/home/desktop/designed-for-everyone.jpg'
 import designedlMobileMain from '/src/assets/home/mobile/designed-for-everyone.jpg'
 import designedlTabletMain from '/src/assets/home/tablet/designed-for-everyone.jpg'
+import FeaturesWrapper from '../features/FeaturesWrapper'
+import StoriesWrapper from '../stories/StoriesWrapper'
 
 export default function Home() {
   return (
@@ -61,7 +61,9 @@ export default function Home() {
         linkTo='/stories'
       />
 
-      <Stories fullList={false} />
+      <StoriesWrapper fullList={false} />
+
+      <FeaturesWrapper fullList={false} />
     </main>
   )
 }

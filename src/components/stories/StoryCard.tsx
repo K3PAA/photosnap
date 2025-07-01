@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
-import Arrow from '../utils/Arrow'
+
 import clsx from 'clsx'
+import Arrow from '../utils/Arrow'
 
 type StoryCardProps = {
   id: string

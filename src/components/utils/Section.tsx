@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import StyledArrowLink from '../utils/StyledArrowLink'
+import StyledArrowLink from './StyledArrowLink'
 import GradientDecoration from './GradientDecoration'
 
 type SectionProps = {
@@ -9,7 +9,7 @@ type SectionProps = {
   content: {
     title: string
     text: string
-    linkText: string
+    linkText?: string
   }
   images: {
     mobile: string
@@ -17,6 +17,7 @@ type SectionProps = {
     desktop: string
   }
   linkTo?: string | null
+  size?: 'large' | 'small'
 }
 
 export default function Section({
@@ -26,6 +27,7 @@ export default function Section({
   withGradient = false,
   linkTo = null,
   imgSide = 'right',
+  size = 'large',
 }: SectionProps) {
   return (
     <section
@@ -70,30 +72,33 @@ export default function Section({
           {content.text}
         </p>
 
-        <StyledArrowLink
-          color={bgBlack ? 'white' : 'black'}
-          className='mt-10'
-          to={linkTo ? linkTo : null}
-        >
-          {content.linkText}
-        </StyledArrowLink>
+        {size === 'large' && (
+          <StyledArrowLink
+            color={bgBlack ? 'white' : 'black'}
+            className='mt-10'
+            to={linkTo ? linkTo : null}
+          >
+            {content.linkText}
+          </StyledArrowLink>
+        )}
       </section>
 
       <img
         src={images.desktop}
-        className={clsx(
-          'min-h-[600px] object-cover bg-center w-full hidden lg:block',
-          {
-            'order-2': imgSide === 'right',
-            'order-1': imgSide === 'left',
-          }
-        )}
+        className={clsx('object-cover bg-center w-full hidden lg:block', {
+          'h-[650px]': size === 'large',
+          'h-[490px]': size === 'small',
+          'order-2': imgSide === 'right',
+          'order-1': imgSide === 'left',
+        })}
       />
       <img
         src={images.tablet}
         className={clsx(
-          'h-[600px] object-cover bg-center w-full hidden sm:block lg:hidden',
+          'object-cover bg-center w-full hidden sm:block lg:hidden',
           {
+            'h-[650px]': size === 'large',
+            'h-[490px]': size === 'small',
             'order-2': imgSide === 'right',
             'order-1': imgSide === 'left',
           }

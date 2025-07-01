@@ -5,7 +5,7 @@ type StoriesProps = {
   fullList: boolean
 }
 
-export default function Stories({ fullList }: StoriesProps) {
+export default function StoriesWrapper({ fullList }: StoriesProps) {
   return (
     <ul className='grid lg:grid-cols-4 sm:grid-cols-2 grid-auto-cols  auto-rows-[375px] lg:auto-rows-[500px]'>
       {sotiresFirstRow.map((card) => {
