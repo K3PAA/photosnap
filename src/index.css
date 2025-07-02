@@ -18,6 +18,11 @@ body {
   @apply font-primary bg-white text-black;
 }
 
+th,
+td {
+  padding: 0.6em;
+}
+
 .my-container {
   --max-width: 1110px;
   --padding: 1rem;

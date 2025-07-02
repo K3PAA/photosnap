@@ -7,6 +7,7 @@ import pricingDesktop from '/src/assets/pricing/desktop/hero.jpg'
 import pricingMobile from '/src/assets/pricing/mobile/hero.jpg'
 import pricingTablet from '/src/assets/pricing/tablet/hero.jpg'
 import clsx from 'clsx'
+import PlanBenefits from './PlanBenefits'
 
 export default function Pricing() {
   const [mode, setMode] = useState<'monthly' | 'yearly'>('monthly')
@@ -88,6 +89,14 @@ export default function Pricing() {
             text='Additional features available such as more detailed metrics. Recommended for business owners.'
           />
         </section>
+      </section>
+
+      <section className='my-40  px-6'>
+        <h2 className='text-[2.5rem] text-center font-bold tracking-widest mb-14'>
+          COMPARE
+        </h2>
+
+        <PlanBenefits />
       </section>
 
       <Beta />
